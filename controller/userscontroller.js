@@ -19,4 +19,11 @@ const userController=async(req,res)=>{
         })
     }
 }
-module.exports=userController;
+const loginController= async (req,res)=>{
+    const {email,password}=req.body;
+    console.log(email,password);
+}
+module.exports={
+    loginController,
+    userController
+};
