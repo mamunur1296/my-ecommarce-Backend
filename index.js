@@ -15,7 +15,6 @@ app.use(express.json());
 // Middleware for parsing URL-encoded data
 app.use(express.urlencoded({ extended: false }));
 
-// app.use(bodyParser())
 //routers
 app.use('/api/router',authRouter)
 

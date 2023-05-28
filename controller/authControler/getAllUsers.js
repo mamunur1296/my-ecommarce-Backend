@@ -2,6 +2,7 @@ const User = require("../../model/usersmodel");
 
   // get all users 
   const findAllUser= async (req,res)=>{
+    console.log(req.user);
     try{
         const allUser= await User.find({})
         res.json({
@@ -12,4 +13,4 @@ const User = require("../../model/usersmodel");
         console.log(error);
     }
   }
-  module.exports=findAllUser;
+  module.exports=findAllUser

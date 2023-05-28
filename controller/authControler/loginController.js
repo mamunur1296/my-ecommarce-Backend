@@ -19,7 +19,7 @@ const loginUser= async (req, res) => {
             lastname:user.lastname,
             email:user.email,
             mobile:user.mobile,
-            token: generateToken(user._id,user.email,user.mobile,)
+            token: generateToken(user._id,user.email,user.mobile,user.roll)
         } });
       } else {
         console.log('Password is incorrect');

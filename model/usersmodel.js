@@ -26,8 +26,24 @@ const userSchema = new mongoose.Schema({
     roll:{
       type:String,
       default:'user'
-    }
-});
+    },
+    cart:{
+      type:Array,
+      default:[]
+    },
+    address:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"address"
+    },
+    wishlest:{
+      type:mongoose.Schema.Types.ObjectId,
+      ref:"product"
+    },
+} ,
+{
+  timestamps:true
+}
+);
 
 // Before saving the user, hash the password if it has been modified or is new
 userSchema.pre('save', function(next) {
