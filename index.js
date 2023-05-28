@@ -9,7 +9,14 @@ const port=process.env.PORT || 4000;
 dbconnect()
 
 
-app.use(bodyParser())
+// Middleware for parsing JSON
+app.use(express.json());
+
+// Middleware for parsing URL-encoded data
+app.use(express.urlencoded({ extended: false }));
+
+// app.use(bodyParser())
+//routers
 app.use('/api/router',authRouter)
 
 //404 error handel

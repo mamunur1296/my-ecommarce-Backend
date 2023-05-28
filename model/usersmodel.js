@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    roll:{
+      type:String,
+      default:'user'
+    }
 });
 
 // Before saving the user, hash the password if it has been modified or is new
