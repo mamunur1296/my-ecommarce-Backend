@@ -1,28 +1,8 @@
-const { generateToken } = require('../config/genaratJwtToken');
-const User = require('../model/usersmodel');
+const { generateToken } = require('../../config/genaratJwtToken');
+const User = require('../../model/usersmodel');
 const bcrypt = require('bcrypt');
-const userController=async(req,res)=>{
 
-    const email=req.body.email;
-    const isAguest= await User.findOne({email});
-    console.log(isAguest);
-    if(!isAguest){
-        //create a new user
-        const newUser= await  User.create(req.body);
-        res.json({
-            data:newUser,
-            smg:'user created successfully',
-            sucess:true,
-        })
-    } else{
-        // user allrady aguest 
-        res.json({
-            smg:'user allrady aguest',
-            sucess:false,
-        })
-    }
-}
-const loginController= async (req, res) => {
+const loginUser= async (req, res) => {
     const { email, password } = req.body;
   
     // Retrieve the user with the provided email (replace this with your actual user data retrieval logic)
@@ -50,20 +30,5 @@ const loginController= async (req, res) => {
       res.status(404).json({ error: 'User not found' });
     }
   };
-  // get all users 
-  const getAllUsers= async (req,res)=>{
-    try{
-        const allUser= await User.find({})
-        res.json({
-            data:allUser
-        })
 
-    }catch(error){
-        console.log(error);
-    }
-  }
-module.exports={
-    loginController,
-    userController,
-    getAllUsers
-};
+  module.exports=loginUser
