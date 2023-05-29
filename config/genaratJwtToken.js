@@ -6,7 +6,7 @@ const generateToken=(id,emil,phon , roll )=>{
         phon:phon,
         roll
     }
-    const token = jwt.sign(paylod, process.env.JWT_SEC, { expiresIn: '60s' });
+    const token = jwt.sign(paylod, process.env.JWT_SEC, { expiresIn: '1h' });
     return token
 }
 module.exports={generateToken}
