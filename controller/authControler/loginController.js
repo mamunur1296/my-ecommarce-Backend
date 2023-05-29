@@ -1,4 +1,5 @@
 const { generateToken } = require('../../config/genaratJwtToken');
+const generateRefreshToken = require('../../config/generatRefressToken');
 const User = require('../../model/usersmodel');
 const bcrypt = require('bcrypt');
 
@@ -13,6 +14,8 @@ const loginUser= async (req, res) => {
       const isPasswordValid = await bcrypt.compare(password, user.password);
   
       if (isPasswordValid) {
+        const refreshToken = generateRefreshToken(user?._id , user?.email,user?.mobile,user?.roll);
+        res.cookie('refreshToken', refreshToken, { httpOnly: true ,maxAge:72*60*60*1000 });
         console.log('Password is correct');
         res.status(200).json({ message: 'Login successful', data: {
             firstname:user.firstname,

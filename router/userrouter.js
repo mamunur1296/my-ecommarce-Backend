@@ -8,6 +8,8 @@ const updateOneUser = require('../controller/authControler/updateUser');
 const verifyToken = require('../middleware/authMeddleware');
 const isAdmin = require('../middleware/isAdminVarify');
 const { isBlockUser, isUnBlockUser } = require('../controller/authControler/blockUnblockUser');
+const handleRefreshToken = require('../middleware/handleRefreshToken ');
+const logoutController = require('../controller/authControler/logoutControler');
 
 
 
@@ -18,6 +20,8 @@ const router=express.Router()
 
 router.post('/regester',userRagister)
 router.post('/login',loginUser)
+router.post('/logout',logoutController)
+router.post('/refresh-token', handleRefreshToken);
 router.get('/all-user',verifyToken,isAdmin,findAllUser)
 router.get('/:id',verifyToken, findSingleUsers)
 router.delete('/:id',verifyToken,DeleitUser)

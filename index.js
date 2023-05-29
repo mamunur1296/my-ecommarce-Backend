@@ -2,6 +2,7 @@ const express = require('express');
 const dbconnect = require('./config/dbConnect');
 const authRouter = require('./router/userrouter');
 const bodyParser = require('body-parser');
+const cookieParser = require('cookie-parser')
 const { isNotFoundHandlar, isErrorHandlar } = require('./middleware/errorHandelar');
 const app=express();
 const dotenv = require('dotenv').config();
@@ -11,12 +12,25 @@ dbconnect()
 
 // Middleware for parsing JSON
 app.use(express.json());
+app.use(cookieParser())
 
 // Middleware for parsing URL-encoded data
+app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }));
+
+
+
+
+
+
+
 
 //routers
 app.use('/api/router',authRouter)
+
+
+
+
 
 //404 error handel
 app.use(isNotFoundHandlar);
