@@ -23,7 +23,7 @@ const loginUser= async (req, res) => {
         } });
       } else {
         console.log('Password is incorrect');
-        res.status(401).json({ error: 'Invalid credentials' });
+        res.status(401).json({ error: 'Password is incorrect' });
       }
     } else {
       console.log('User not found');

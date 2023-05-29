@@ -23,6 +23,10 @@ const userSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    isBlocked:{
+      type:Boolean,
+      default:false
+    },
     roll:{
       type:String,
       default:'user'

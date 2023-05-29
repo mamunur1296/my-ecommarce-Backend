@@ -1,9 +1,11 @@
+const validateMongoId = require("../../Utilities/validateMongoId");
 const User = require("../../model/usersmodel");
 
   
 const DeleitUser = async (req, res) => {
     try {
       const { id } = req.params;
+      validateMongoId(id)
       const deletedUser = await User.deleteOne({ _id: id });
       
       if (deletedUser.deletedCount === 1) {

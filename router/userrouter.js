@@ -7,6 +7,7 @@ const DeleitUser = require('../controller/authControler/DeleitUserbyId');
 const updateOneUser = require('../controller/authControler/updateUser');
 const verifyToken = require('../middleware/authMeddleware');
 const isAdmin = require('../middleware/isAdminVarify');
+const { isBlockUser, isUnBlockUser } = require('../controller/authControler/blockUnblockUser');
 
 
 
@@ -21,6 +22,8 @@ router.get('/all-user',verifyToken,isAdmin,findAllUser)
 router.get('/:id',verifyToken, findSingleUsers)
 router.delete('/:id',verifyToken,DeleitUser)
 router.put('/edit-user',verifyToken,updateOneUser)
+router.put('/block-user/:id',verifyToken,isAdmin,isBlockUser)
+router.put('/unblock-user/:id',verifyToken,isAdmin,isUnBlockUser)
 
 
 
