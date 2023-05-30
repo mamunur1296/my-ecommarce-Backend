@@ -3,6 +3,8 @@ const dbconnect = require('./config/dbConnect');
 const authRouter = require('./router/userrouter');
 const productRouter = require('./router/productRouter');
 const blogRouter = require('./router/blogRouter');
+const categoryRouter = require('./router/prodcatagoryRouter');
+const blogCategoryRouter = require('./router/blogCategoryRouter');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan');
@@ -34,6 +36,8 @@ app.use(express.urlencoded({ extended: false }));
 app.use('/api/router',authRouter)
 app.use('/api/product',productRouter)
 app.use('/api/blog',blogRouter)
+app.use('/api/prodcategory',categoryRouter)
+app.use('/api/blogcategory',blogCategoryRouter)
 
 
 
