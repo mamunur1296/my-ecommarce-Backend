@@ -5,14 +5,9 @@ const validateMongoId = (id) => {
     throw new Error('Invalid MongoDB ObjectId');
   }
 };
-
-// Assuming you have an ID string to validate
-
-// try {
-//   validateMongoId(id);
-//   console.log('Valid MongoDB ObjectId');
-// } catch (error) {
-//   console.error(error.message);
-// }
-
+// const validateMongoId = (id) => {
+//   if (!mongoose.Types.ObjectId.isValid(id)) {
+//     throw new Error('Invalid MongoDB ObjectId');
+//   }
+// };
 module.exports=validateMongoId;

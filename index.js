@@ -2,6 +2,7 @@ const express = require('express');
 const dbconnect = require('./config/dbConnect');
 const authRouter = require('./router/userrouter');
 const productRouter = require('./router/productRouter');
+const blogRouter = require('./router/blogRouter');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan');
@@ -32,6 +33,7 @@ app.use(express.urlencoded({ extended: false }));
 //routers
 app.use('/api/router',authRouter)
 app.use('/api/product',productRouter)
+app.use('/api/blog',blogRouter)
 
 
 
