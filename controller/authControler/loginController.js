@@ -8,10 +8,11 @@ const loginUser= async (req, res) => {
   
     // Retrieve the user with the provided email (replace this with your actual user data retrieval logic)
     const user = await User.findOne({ email });
-  
+  console.log(password);
     if (user) {
       // Compare the provided password with the hashed password
       const isPasswordValid = await bcrypt.compare(password, user.password);
+      console.log(isPasswordValid);
   
       if (isPasswordValid) {
         const refreshToken = generateRefreshToken(user?._id , user?.email,user?.mobile,user?.roll);

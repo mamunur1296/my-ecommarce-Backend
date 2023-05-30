@@ -10,6 +10,9 @@ const isAdmin = require('../middleware/isAdminVarify');
 const { isBlockUser, isUnBlockUser } = require('../controller/authControler/blockUnblockUser');
 const handleRefreshToken = require('../middleware/handleRefreshToken ');
 const logoutController = require('../controller/authControler/logoutControler');
+const { updatePassword } = require('../controller/authControler/updateAndResatPassword');
+const { initiatePasswordReset, resetPassword } = require('../controller/authControler/forgetPasswordToken');
+
 
 
 
@@ -28,6 +31,9 @@ router.delete('/:id',verifyToken,DeleitUser)
 router.put('/edit-user',verifyToken,updateOneUser)
 router.put('/block-user/:id',verifyToken,isAdmin,isBlockUser)
 router.put('/unblock-user/:id',verifyToken,isAdmin,isUnBlockUser)
+router.put('/Password/:id',verifyToken,updatePassword)
+router.put('/forgetPasswordToken',initiatePasswordReset)
+router.put('/reset-password/:token',resetPassword)
 
 
 
