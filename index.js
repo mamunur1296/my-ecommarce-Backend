@@ -5,6 +5,8 @@ const productRouter = require('./router/productRouter');
 const blogRouter = require('./router/blogRouter');
 const categoryRouter = require('./router/prodcatagoryRouter');
 const blogCategoryRouter = require('./router/blogCategoryRouter');
+const brandRouter = require('./router/brandRouter');
+const couponRouter = require('./router/couponRouter');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser')
 const morgan = require('morgan');
@@ -26,21 +28,14 @@ app.use(bodyParser.json())
 app.use(express.urlencoded({ extended: false }));
 
 
-
-
-
-
-
-
 //routers
 app.use('/api/router',authRouter)
 app.use('/api/product',productRouter)
 app.use('/api/blog',blogRouter)
 app.use('/api/prodcategory',categoryRouter)
 app.use('/api/blogcategory',blogCategoryRouter)
-
-
-
+app.use('/api/brand',brandRouter)
+app.use('/api/coupon',couponRouter)
 
 
 //404 error handel

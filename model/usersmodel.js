@@ -29,7 +29,7 @@ const userSchema = new mongoose.Schema({
     },
     roll:{
       type:String,
-      default:'user'
+      default:'User'
     },
     cart:{
       type:Array,
@@ -39,10 +39,12 @@ const userSchema = new mongoose.Schema({
       type:mongoose.Schema.Types.ObjectId,
       ref:"address"
     },
-    wishlest:{
-      type:mongoose.Schema.Types.ObjectId,
-      ref:"product"
-    },
+    wishlest:[
+      {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:"Product"
+      }
+    ],
     refreshToken:{
       type:String,
     },
